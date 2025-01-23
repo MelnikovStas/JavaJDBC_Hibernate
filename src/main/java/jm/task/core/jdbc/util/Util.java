@@ -10,14 +10,11 @@ public class Util {
     final String user = "root";
     final String password = "root";
     public Connection getConnection() {
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(url, user, password);
-            System.out.println("Connection OK");
+        try ( Connection connection = DriverManager.getConnection(url,user,password)) {
+            return connection;
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Connection ERROR");
         }
-        return conn;
+        return null;
     }
 }
