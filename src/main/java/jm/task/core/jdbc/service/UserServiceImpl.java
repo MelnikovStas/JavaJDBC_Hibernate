@@ -11,14 +11,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private UserDao userDao = new UserDaoJDBCImpl();
+    private final UserDao userDao = new UserDaoJDBCImpl();
 
     public void createUsersTable() {
         userDao.createUsersTable();
     }
 
     public void dropUsersTable() {
-
+        userDao.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
@@ -30,8 +30,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public List<User> getAllUsers() {
-        userDao.getAllUsers();
-        return null;
+        return userDao.getAllUsers();
     }
 
     public void cleanUsersTable() {

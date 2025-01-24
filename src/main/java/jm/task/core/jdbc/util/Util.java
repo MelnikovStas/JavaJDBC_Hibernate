@@ -9,11 +9,7 @@ public class Util {
     static final String url = "jdbc:mysql://localhost:3306/MySql";
     static final String userName = "root";
     static final String password = "root";
-    public static Connection getConnection() {
-        try {
-            return DriverManager.getConnection(url,userName,password);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(url,userName,password);
     }
 }
